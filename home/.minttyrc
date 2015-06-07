@@ -1,1 +1,25 @@
-/home/Mingliang/.minttyrc
+BoldAsFont=no
+Font=YaHei.Consolas
+FontHeight=12
+Columns=111
+Rows=25
+CursorType=block
+ForegroundColour=221, 208, 198
+BackgroundColour=  0,  43,  54
+CursorColour=    180, 180, 180
+Black=             0,  43,  54
+BoldBlack=         7,  54,  66
+Red=             227,  92,  89
+BoldRed=         234, 131, 128
+Green=            91, 177,   5
+BoldGreen=       106, 207,   5
+Yellow=          255, 191,   0
+BoldYellow=      255, 214,  89
+Blue=            112, 179, 228
+BoldBlue=        146, 197, 235
+Magenta=         221, 100, 190
+BoldMagenta=     234, 155, 215
+Cyan=             42, 161, 152
+BoldCyan=         85, 210, 201
+White=           221, 208, 198
+BoldWhite=       236, 230, 224
