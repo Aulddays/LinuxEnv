@@ -1,10 +1,15 @@
 set mouse=	" disable mouse
-set encoding=cp936
-set fileencodings=gb18030,utf-8
-set termencoding=gb18030
 colorscheme aulddays
 set scrolloff=4	" center cursor when scroll
 set nu
+set textwidth=0
+
+set encoding=cp936
+set fileencodings=ucs-bom,gb18030,utf-8
+set termencoding=gb18030
+" use fencview to detect encoding. fencview can further use tellenc.
+" compile tellenc.cpp in the bin dir and add to PATH
+let g:fencview_autodetect=1
 
 " Work-around incomplete terminfo databases                                     
 " Particulalry useful when under `screen`, which may or may not be attached to  
@@ -18,7 +23,7 @@ endif
 
 " syntax highlighting is very slow on long lines, disable it after 250 col
 " If this does not help, just use :syntax off on that file!
-set synmaxcol=400	
+set synmaxcol=1500	
 " disable syntax highlighting on large files. seems impossible to switch back
 " on after open that file, but comment this line
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 10485760 | syntax clear | endif
