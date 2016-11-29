@@ -703,7 +703,6 @@ function! s:EditAutoEncoding(...) "{{{1
         endif
     endif
     if ($FENCVIEW_TELLENC == "fencview") || !executable($FENCVIEW_TELLENC)
-        :echom "notellenc"
         call s:FencDetectFileEncoding()
         return
     endif
@@ -720,8 +719,6 @@ function! s:EditAutoEncoding(...) "{{{1
             let shellslash_save = &shellslash
             set noshellslash
         endif
-        :echom "tellenc"
-        system("echo 'runtellenc' >> /home/work/tellenc.log")
         let result=system($FENCVIEW_TELLENC . ' ' . s:escape(filename))
         if exists('+shellslash')
             let &shellslash = shellslash_save
