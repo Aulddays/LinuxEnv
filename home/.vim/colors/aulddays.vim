@@ -44,6 +44,7 @@ hi FoldColumn	guibg=gray30 guifg=white
 hi cIf0			guifg=gray
 hi Conceal		cterm=bold ctermbg=237 ctermfg=136
 hi Number		ctermfg=208
+hi CursorLine   term=underline cterm=bold ctermbg=235 guibg=Grey40 
 
 hi link Boolean 	Number
 hi link Float       Number

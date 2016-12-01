@@ -39,6 +39,7 @@ colorscheme aulddays
 set scrolloff=4	" center cursor when scroll
 set nu
 set textwidth=0
+set cursorline
 
 set encoding=cp936
 set fileencodings=ucs-bom,gb18030,utf-8
@@ -59,7 +60,7 @@ endif
 
 " syntax highlighting is very slow on long lines, disable it after 250 col
 " If this does not help, just use :syntax off on that file!
-set synmaxcol=1500	
+set synmaxcol=1500
 " disable syntax highlighting on large files. seems impossible to switch back
 " on after open that file, but comment this line
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 10485760 | syntax clear | endif
