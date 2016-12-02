@@ -40,6 +40,9 @@ set scrolloff=4	" center cursor when scroll
 set nu
 set textwidth=0
 set cursorline
+set tabstop=4
+set backupdir=~/.cache/vim//
+set undodir=~/.cache/vim//
 
 set encoding=cp936
 set fileencodings=ucs-bom,gb18030,utf-8
