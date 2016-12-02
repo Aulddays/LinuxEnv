@@ -23,11 +23,14 @@ if [ ! -z "$TERMCAP" ] && [ "$TERM" == "screen" ]; then
 	export TERMCAP=$(echo $TERMCAP | sed -e 's/Co#8/Co#256/g')    
 fi 
 
-function strjoin { local IFS="$1"; shift; echo "$*"; }
-alias trtn='tr "\t" "\n"'
-
 if [ "$PS1" ]; then
 	PS1='\[\e[38;5;136m\]${HOSTNAME} \[\e[38;5;153m\]\W \[\e[38;5;227m\]\$\[\e[0m\] '
 fi
 
-export PATH=$HOME/bin:$PATH
+# helper functions
+# join a bunch of strings
+function strjoin { local IFS="$1"; shift; echo "$*"; }
+# "\t" -> "\n"
+alias trtn='tr "\t" "\n"'
+
+export PATH=$HOME/bin:$HOME/env/bin:$PATH
