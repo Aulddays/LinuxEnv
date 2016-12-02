@@ -169,3 +169,4 @@ let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
 " jedi-vim  plugin options
 "let g:jedi#completions_command = "<C-N>"
 let g:jedi#completions_enabled = 0	" Disable completion in jedi-vim
+let g:jedi#call_signature_escape = 'A0u1l2'	" Default =`= conflicts with operator_highlight plugin
