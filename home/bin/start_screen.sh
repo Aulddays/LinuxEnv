@@ -5,7 +5,7 @@
 SBASE=""
 # see if we should use a session name prefix
 fn=$(basename $0)
-if [[ $fn =~ "_.{1,3}$" ]]; then	# let prefix to be 1-3 char len
+if [[ $fn =~ _.{1,3}$ ]]; then	# let prefix to be 1-3 char len
 	SBASE=${fn##*_}
 fi
 screen -list
