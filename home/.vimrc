@@ -9,6 +9,7 @@ call vundle#begin()
 "call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
+" git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 Plugin 'VundleVim/Vundle.vim'
 
 " third_party/ycmd/build.py
@@ -40,9 +41,16 @@ set scrolloff=4	" center cursor when scroll
 set nu
 set textwidth=0
 set cursorline
-set tabstop=4
-set backupdir=~/.cache/vim//
-set undodir=~/.cache/vim//
+set writebackup " use a backup file for saving
+if has('persistent_undo')
+	set nobackup        " drop backup files when we use undo
+	set undofile    " keep an undo file (undo changes after closing)
+	set undodir=~/.cache/vim//
+	set backupdir=.
+else
+	set backup        " keep a backup file (restore to previous version)
+	set backupdir=~/.cache/vim//,.
+endif
 
 set encoding=cp936
 set fileencodings=ucs-bom,gb18030,utf-8
@@ -68,16 +76,11 @@ set synmaxcol=1500
 " on after open that file, but comment this line
 autocmd BufWinEnter * if line2byte(line("$") + 1) > 10485760 | syntax clear | endif
 
-"autocmd FileType des setlocal et sta sw=4 sts=4
+" Indents
+set noexpandtab tabstop=4 shiftwidth=4 
 autocmd FileType python setlocal et sta sw=4 sts=4
-"autocmd FileType html setlocal noet sta sw=4 sts=4
-"autocmd FileType xsl setlocal noet sta sw=4 sts=4
-"autocmd FileType xml setlocal noet sta sw=4 sts=4
-"autocmd FileType tpl setlocal noet sta sw=4 sts=4
-"autocmd FileType php setlocal et sta sw=4 sts=4
-autocmd FileType c setlocal expandtab ts=4 sw=4 sts=4
-autocmd FileType cpp setlocal expandtab ts=4 sw=4 sts=4
-"autocmd FileType js setlocal et sta sw=4 sts=4
+"autocmd FileType c setlocal expandtab ts=4 sw=4 sts=4
+"autocmd FileType cpp setlocal expandtab ts=4 sw=4 sts=4
 
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
@@ -97,11 +100,6 @@ map <F12> :IndentLinesToggle<CR>
 "set rulerformat=%30(%=:b%n%y%m%r%w\ %l,%c%V\ %P%)
 set statusline=%f\ %=%-8.(%l,%c%V%)\ %P
 set ruf=%40(%#Operator#%t%##\ %=%#Statement#%-8.(%l,%c%V%)%##\ %P%)
-"let python_highlight_all = 1
-"Python2Syntax
-""powerline
-"set rtp+=/lib/python2.7/site-packages/powerline/bindings/vim/
-"set laststatus=1
 
 " press F10 to show the sytax highlighting group under cursor
 map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
