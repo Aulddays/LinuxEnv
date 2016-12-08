@@ -166,6 +166,7 @@ endif
 " For perlomni.vim setting.
 " https://github.com/c9s/perlomni.vim
 let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+let g:neocomplete#enable_auto_close_preview=1
 
 " jedi-vim  plugin options
 "let g:jedi#completions_command = "<C-N>"

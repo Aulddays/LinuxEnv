@@ -171,7 +171,7 @@ syn match pythonImport      "\<from\>" display
 
 if s:Python2Syntax()
   if !s:Enabled("g:python_print_as_function")
-    syn keyword pythonStatement  print
+    syn keyword pythonStatement  print eprint
   endif
   syn keyword pythonImport      as
   syn match   pythonFunction    "[a-zA-Z_][a-zA-Z0-9_]*" display contained
@@ -416,10 +416,10 @@ if s:Enabled("g:python_highlight_builtin_funcs")
     syn keyword pythonBuiltinFunc	execfile file help intern long raw_input
     syn keyword pythonBuiltinFunc	reduce reload unichr unicode xrange
     if s:Enabled("g:python_print_as_function")
-      syn keyword pythonBuiltinFunc	print
+      syn keyword pythonBuiltinFunc	print eprint
     endif
   else
-    syn keyword pythonBuiltinFunc	ascii exec memoryview print
+    syn keyword pythonBuiltinFunc	ascii exec memoryview print eprint
   endif
   syn keyword pythonBuiltinFunc	__import__ abs all any
   syn keyword pythonBuiltinFunc	bin bool bytearray bytes
