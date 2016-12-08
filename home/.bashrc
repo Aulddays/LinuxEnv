@@ -24,7 +24,7 @@ if [ ! -z "$TERMCAP" ] && [ "$TERM" == "screen" ]; then
 fi 
 
 if [ "$PS1" ]; then
-	PS1='\[\e[38;5;136m\]${HOSTNAME} \[\e[38;5;153m\]\W \[\e[38;5;227m\]\$\[\e[0m\] '
+	PS1='$(code=$?;[[ $code = 0 ]] || printf "\[\e[48;5;53m\][$code] ")\[\e[38;5;136m\]${HOSTNAME} \[\e[38;5;153m\]\W \[\e[38;5;227m\]\$\[\e[0m\] '
 fi
 
 # helper functions
