@@ -13,13 +13,12 @@ echo -n "Session name: $SBASE"
 read sname
 sname="$SBASE$sname"
 
-# workaround that screen fails to set title if xterm-color256
-export TERM=xterm
-unset TERMCAP
+# default PROMPT_COMMAND may overwrite screen title with something like "user@host pwd"
+export PROMPT_COMMAND='echo -ne "\033]0;${STY#*.}\007"'
 
 if (screen -list | fgrep "$sname"$'\t' | fgrep -v "$sname"$'\t(Dead'); then
-    screen -dR "$sname"
+    exec screen -dR "$sname"
 else
-    screen -S "$sname" -t "$sname"
+    exec screen -S "$sname" -t "$sname"
 fi
 
