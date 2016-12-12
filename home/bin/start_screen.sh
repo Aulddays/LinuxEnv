@@ -13,6 +13,9 @@ echo -n "Session name: $SBASE"
 read sname
 sname="$SBASE$sname"
 
+# workaround that sometimes screen fails to set title if xterm-color256
+export TERM=xterm
+unset TERMCAP
 # default PROMPT_COMMAND may overwrite screen title with something like "user@host pwd"
 export PROMPT_COMMAND='echo -ne "\033]0;${STY#*.}\007"'
 
