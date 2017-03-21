@@ -82,6 +82,7 @@ autocmd FileType python setlocal et sta sw=4 sts=4
 "autocmd FileType c setlocal expandtab ts=4 sw=4 sts=4
 "autocmd FileType cpp setlocal expandtab ts=4 sw=4 sts=4
 
+let python_version_2 = 1
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
 
