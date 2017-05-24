@@ -17,7 +17,7 @@ Plugin 'VundleVim/Vundle.vim'
 " ./third_party/ycmd/clang_archives => http://llvm.org/releases/clang+llvm-3.9.0-x86_64-opensuse13.2.tar.xz
 "Plugin 'Valloric/YouCompleteMe'
 
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete'
 
 " All of your Plugins must be added before the following line
@@ -40,7 +40,10 @@ colorscheme aulddays
 set scrolloff=4	" center cursor when scroll
 set nu
 set textwidth=0
-set cursorline
+set splitright	" vs puts the new buffer on the right
+if !&diff
+	set cursorline	" Use cursorline if not in vimdiff
+endif
 set writebackup " use a backup file for saving
 if has('persistent_undo')
 	set nobackup        " drop backup files when we use undo
