@@ -8,10 +8,12 @@ fi
 # User specific aliases and functions
 export LANG=zh_CN.gb18030
 
+alias lh='ls -lh --color=tty'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rsync='rsync -t'
+set -o pipefail
 
 export EDITOR=vim
 export LESS=-RMfi
