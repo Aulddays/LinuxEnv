@@ -49,6 +49,11 @@ hi CursorLine   term=underline cterm=bold ctermbg=235 guibg=Grey40
 hi link Boolean 	Number
 hi link Float       Number
 
-" for tab in listchars
+" for tab hilighting (in listchars).
+" matchadd does the trick, and -1 in matchadd makes search highlighting override it
 hi GroupTab     ctermfg=95
-2match GroupTab /\t/
+call matchadd("GroupTab", "\t", -1)
+" The above does not work for new windows (such as those created by :split), use WinEnter to handle that
+autocmd VimEnter * autocmd WinEnter * let w:tabmatchadded=1	" tabmatchadded ensures matchadd only once
+autocmd VimEnter * let w:tabmatchadded=1	" WinEnter doesn't fire on the first window
+autocmd WinEnter * if !exists('w:tabmatchadded') | call matchadd("GroupTab", "\t", -1) | endif
