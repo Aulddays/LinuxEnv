@@ -5,10 +5,26 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# User specific aliases and functions
-export LANG=zh_CN.gb18030
+# Source customized definitions
+if [ -f $HOME/.bashrccustom ]; then
+	. $HOME/.bashrccustom
+fi
 
+# User specific aliases and functions
+
+# if LANG other than zh_CN.gb18030 is needed, set LANGCUSTOM=... in ~/.bashrccustom
+if [[ ! -z "$LANGCUSTOM" ]]; then
+	export LANG="$LANGCUSTOM"
+else
+	export LANG=zh_CN.gb18030
+fi
+
+alias ls='ls --color=tty'
+alias ll='ls -l --color=tty'
 alias lh='ls -lh --color=tty'
+alias la='ls -A --color=tty'
+alias lla='ls -lA --color=tty'
+alias l.='ls -d .* --color=tty'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'

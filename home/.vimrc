@@ -10,6 +10,7 @@ call vundle#begin()
 
 " let Vundle manage Vundle, required
 " git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+" Then in vim, run :PluginInstall
 Plugin 'VundleVim/Vundle.vim'
 
 " third_party/ycmd/build.py
@@ -55,9 +56,14 @@ else
 	set backupdir=~/.cache/vim//,.
 endif
 
-set encoding=cp936
+if match($LANG, 'utf8') >= 0
+	set encoding=utf8
+	set termencoding=utf8
+else
+	set encoding=cp936
+	set termencoding=gb18030
+endif
 set fileencodings=ucs-bom,gb18030,utf-8
-set termencoding=gb18030
 " use fencview to detect encoding. fencview can further use tellenc.
 " compile tellenc.cpp in the bin dir and add to PATH
 let g:fencview_autodetect=1
