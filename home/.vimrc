@@ -71,7 +71,7 @@ let g:fencview_autodetect=1
 " Work-around incomplete terminfo databases                                     
 " Particulalry useful when under `screen`, which may or may not be attached to  
 " a physical terminal capable of 256color mode.                                 
-if match($TERMCAP, 'Co#256:') == 0 || match($TERMCAP, ':Co#256:') > 0           
+if match($TERMCAP, 'Co#256:') == 0 || match($TERMCAP, ':Co#256:') > 0 || match($TERM, 'xterm') >= 0 || match($TERM, 'linux') >= 0
     set t_Co=256                                                                
 endif    
 
