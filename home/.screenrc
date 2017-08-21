@@ -2,8 +2,8 @@
 shell -/bin/bash
 
 vbell off
-defencoding gbk
-encoding gbk gbk
+#defencoding gbk
+#encoding gbk gbk
 hardstatus string "%t"
 
 # Enable 256-color mode

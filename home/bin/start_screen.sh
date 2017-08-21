@@ -19,9 +19,18 @@ unset TERMCAP
 # default PROMPT_COMMAND may overwrite screen title with something like "user@host pwd"
 export PROMPT_COMMAND='echo -ne "\033]0;${STY#*.}\007"'
 
+# screen does not recognize gb18030 but only gbk. Fake LANG so that we do not have to
+# `:encoding gbk gbk` each time a screen is created or reattched
+SCREENFAKELANG=""
+if [[ ${LANG-} && $LANG =~ '(gb|GB)18030' ]]; then
+	SCREENFAKELANG=${LANG/gb18030/gbk}
+	SCREENFAKELANG=${SCREENFAKELANG/GB18030/GBK}
+	SCREENFAKELANG="LANG=$SCREENFAKELANG "
+fi
+
 if (screen -list | fgrep "$sname"$'\t' | fgrep -v "$sname"$'\t(Dead'); then
-    exec screen -dR "$sname"
+    eval ${SCREENFAKELANG}exec screen -dR "$sname"
 else
-    exec screen -S "$sname" -t "$sname"
+    eval ${SCREENFAKELANG}exec screen -S "$sname" -t "$sname"
 fi
 
