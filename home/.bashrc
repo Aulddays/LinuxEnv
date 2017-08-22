@@ -28,6 +28,7 @@ alias l.='ls -d .* --color=tty'
 alias rm='rm -i'
 alias cp='cp -i'
 alias mv='mv -i'
+alias ln='ln -i'
 alias rsync='rsync -t'
 set -o pipefail
 
