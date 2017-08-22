@@ -62,7 +62,7 @@ if match($LANG, 'utf8') >= 0
 	set encoding=utf8
 	set termencoding=utf8
 else
-	set encoding=cp936
+	set encoding=2byte-gb18030
 	set termencoding=gb18030
 endif
 set fileencodings=ucs-bom,gb18030,utf-8
