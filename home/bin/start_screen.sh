@@ -29,7 +29,8 @@ if [[ ${LANG-} && $LANG =~ '(gb|GB)18030' ]]; then
 fi
 
 if (screen -list | fgrep "$sname"$'\t' | fgrep -v "$sname"$'\t(Dead'); then
-    eval ${SCREENFAKELANG}exec screen -dR "$sname"
+	rsname=$(screen -list | grep -F "$sname"$'\t' | grep -Fv "$sname"$'\t(Dead' | head -n1 | grep -oE "[^"$'\t'"]+$sname"$'\t' | cut -f1)
+    eval ${SCREENFAKELANG}exec screen -dR "$rsname"
 else
     eval ${SCREENFAKELANG}exec screen -S "$sname" -t "$sname"
 fi
