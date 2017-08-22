@@ -42,6 +42,8 @@ set scrolloff=4	" center cursor when scroll
 set nu
 set textwidth=0
 set splitright	" vs puts the new buffer on the right
+set wildmode=longest:full,full	" tab completion mode
+set wildmenu
 if !&diff
 	set cursorline	" Use cursorline if not in vimdiff
 endif
@@ -95,7 +97,7 @@ let python_version_2 = 1
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
 
-autocmd FileType python,c,cpp set list listchars=tab:>\     " show tab chars
+autocmd FileType python,c,cpp set list listchars=tab:>\  | set colorcolumn=100    " show tab chars
 " Press F11 to toggle show tab char
 map <F11> : if &list <Bar> set nolist <Bar> else <Bar> set list listchars=tab:>\  <Bar> endif<CR>
 
