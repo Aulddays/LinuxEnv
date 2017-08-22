@@ -34,6 +34,7 @@ set -o pipefail
 
 export EDITOR=vim
 export LESS=-RMfi
+export LESSCHARSET=dos	# Works on most gb18030 chars. For all valid values refer to less/charset.c:charsets[]
 
 if [ "$TERM" == "xterm" ]; then
 	export TERM=xterm-256color
