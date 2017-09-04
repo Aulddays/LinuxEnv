@@ -19,6 +19,10 @@ else
 	export LANG=zh_CN.gb18030
 fi
 
+# Shell configuration
+set -o pipefail
+stty -ixon	# disable XON/XOFF flow control, so that ctrl-s does a forward cmd history search (reverse of C-r)
+
 alias ls='ls --color=tty'
 alias ll='ls -l --color=tty'
 alias lh='ls -lh --color=tty'
@@ -30,7 +34,7 @@ alias cp='cp -i'
 alias mv='mv -i'
 alias ln='ln -i'
 alias rsync='rsync -t'
-set -o pipefail
+alias hexdump='hexdump -C'
 
 export EDITOR=vim
 export LESS=-RMfi
