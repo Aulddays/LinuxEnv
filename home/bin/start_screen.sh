@@ -22,7 +22,10 @@ export PROMPT_COMMAND='echo -ne "\033]0;${STY#*.}\007"'
 # screen does not recognize gb18030 but only gbk. Fake LANG so that we do not have to
 # `:encoding gbk gbk` each time a screen is created or reattched
 SCREENFAKELANG=""
-if [[ ${LANG-} && $LANG =~ '(gb|GB)18030' ]]; then
+# bash changed =~ behavior since v3.2. Put the regex into a variable to workaround
+# https://stackoverflow.com/questions/218156/bash-regex-with-quotes/218217
+gbre='(gb|GB)18030'
+if [[ ${LANG-} && $LANG =~ $gbre ]]; then
 	SCREENFAKELANG=${LANG/gb18030/gbk}
 	SCREENFAKELANG=${SCREENFAKELANG/GB18030/GBK}
 	SCREENFAKELANG="LANG=$SCREENFAKELANG "
