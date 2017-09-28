@@ -21,7 +21,7 @@ fi
 
 # Shell configuration
 set -o pipefail
-stty -ixon	# disable XON/XOFF flow control, so that ctrl-s does a forward cmd history search (reverse of C-r)
+stty stop '^P'	# bind XOFF flow control to ctrl-p, so that C-s does a forward cmd history search (reverse of C-r)
 
 alias ls='ls --color=tty'
 alias ll='ls -l --color=tty'
