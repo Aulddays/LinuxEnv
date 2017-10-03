@@ -46,6 +46,9 @@ fi
 if [ ! -z "$TERMCAP" ] && [ "$TERM" == "screen" ]; then    
 	export TERMCAP=$(echo $TERMCAP | sed -e 's/Co#8/Co#256/g')    
 fi 
+if [[ "$TERM" == "screen" ]]; then   # Do not allow PROMPT_COMMAND to modify session title 
+	export PROMPT_COMMAND=""
+fi 
 
 # TIP: export HOSTNAME in ~/.bashrccustom changes hostname in command prompt
 if [ "$PS1" ]; then
