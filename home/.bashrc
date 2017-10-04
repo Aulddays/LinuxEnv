@@ -21,7 +21,7 @@ fi
 
 # Shell configuration
 set -o pipefail
-stty stop '^P'	# bind XOFF flow control to ctrl-p, so that C-s does a forward cmd history search (reverse of C-r)
+[[ $- == *i* ]] && stty stop '^P'	# bind XOFF flow control to ctrl-p, so that C-s does a forward cmd history search (reverse of C-r)
 
 alias ls='ls --color=tty'
 alias ll='ls -l --color=tty'
