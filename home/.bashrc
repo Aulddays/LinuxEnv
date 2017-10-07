@@ -36,6 +36,10 @@ alias ln='ln -i'
 alias rsync='rsync -t'
 alias hexdump='hexdump -C'
 
+# allow alias in sudo. bash checks only first word in cmd for alias by default,
+# but if an alias value ends with sapce, the next word after it is also checked, so that `ll` in `sudo ll` will work
+alias sudo='sudo '
+
 export EDITOR=vim
 export LESS=-RMfi
 export LESSCHARSET=dos	# Works on most gb18030 chars. For all valid values refer to less/charset.c:charsets[]
