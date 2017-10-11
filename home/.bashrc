@@ -39,6 +39,8 @@ alias hexdump='hexdump -C'
 # allow alias in sudo. bash checks only first word in cmd for alias by default,
 # but if an alias value ends with sapce, the next word after it is also checked, so that `ll` in `sudo ll` will work
 alias sudo='sudo '
+# command completion for sudo
+complete -c sudo
 
 export EDITOR=vim
 export LESS=-RMfi
