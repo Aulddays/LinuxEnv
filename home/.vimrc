@@ -90,6 +90,7 @@ autocmd BufWinEnter * if line2byte(line("$") + 1) > 10485760 | syntax clear | en
 " Indents
 set autoindent cindent cinkeys-=0# indentkeys-=0#	" turn on indent by default and do not move back '#'
 set noexpandtab tabstop=4 shiftwidth=4 
+set modeline
 autocmd FileType python setlocal et sta sw=4 sts=4
 "autocmd FileType c setlocal expandtab ts=4 sw=4 sts=4
 "autocmd FileType cpp setlocal expandtab ts=4 sw=4 sts=4
