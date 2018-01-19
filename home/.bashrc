@@ -68,5 +68,8 @@ fi
 function strjoin { local IFS="$1"; shift; echo "$*"; }
 # "\t" -> "\n"
 alias trtn='tr "\t" "\n"'
+# Simple file encryption/decryption
+alias opensslenc='openssl aes-256-cbc -salt -e'
+alias openssldec='openssl aes-256-cbc -d'
 
 export PATH=$HOME/bin:$HOME/env/bin:$PATH
