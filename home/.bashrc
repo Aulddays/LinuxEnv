@@ -35,6 +35,7 @@ alias mv='mv -i'
 alias ln='ln -i'
 alias rsync='rsync -t'
 alias hexdump='hexdump -C'
+alias ..='cd ..'
 
 # allow alias in sudo. bash checks only first word in cmd for alias by default,
 # but if an alias value ends with sapce, the next word after it is also checked, so that `ll` in `sudo ll` will work
