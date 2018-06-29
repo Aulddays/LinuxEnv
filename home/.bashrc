@@ -52,11 +52,12 @@ export LESSCHARSET=dos	# Works on most gb18030 chars. For all valid values refer
 if [ "$TERM" == "xterm" ]; then
 	export TERM=xterm-256color
 fi
-if [ ! -z "$TERMCAP" ] && [ "$TERM" == "screen" ]; then    
+if [[ ! -z "$TERMCAP" && "$TERM" == screen* ]]; then    
 	export TERMCAP=$(echo $TERMCAP | sed -e 's/Co#8/Co#256/g')    
 fi 
-if [[ "$TERM" == "screen" ]]; then   # Do not allow PROMPT_COMMAND to modify session title 
-	export PROMPT_COMMAND=""
+if [[ "$TERM" == screen* ]]; then
+	export PROMPT_COMMAND=""	# Do not allow PROMPT_COMMAND to modify terminal title (default one may look like `user@host pwd`)
+	echo -ne "\033]0;${STY#*.}\007"	# Let the terminal title to show screen title (taken from $STY)
 fi 
 
 # TIP: export HOSTNAME in ~/.bashrccustom changes hostname in command prompt
