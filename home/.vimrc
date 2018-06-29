@@ -46,6 +46,7 @@ set wildmode=longest:full,full	" tab completion mode
 set wildmenu
 if !&diff
 	set cursorline	" Use cursorline if not in vimdiff
+	set lazyredraw
 endif
 set writebackup " use a backup file for saving
 if has('persistent_undo')
