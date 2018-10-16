@@ -30,7 +30,8 @@ int main(int argc, char **argv, char **env)
 		size_t cur = 0;
 		for (cur = 0; cur < read; ++cur)
 		{
-			if (buf[cur] > 127) {
+			if (buf[cur] > 127)
+			{
 				if (cur + 1 < read)
 					++cur;	// the second byte of gb char may be in range [A-Z], skip it
 				else
