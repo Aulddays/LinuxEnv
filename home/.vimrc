@@ -41,7 +41,7 @@ colorscheme aulddays
 set scrolloff=4	" center cursor when scroll
 set nu
 set textwidth=0
-set splitright	" vs puts the new buffer on the right
+set splitright splitbelow	" vs puts the new buffer on the right/below
 set wildmode=longest:full,full	" tab completion mode
 set wildmenu
 if !&diff
@@ -83,10 +83,9 @@ endif
 
 " syntax highlighting is very slow on long lines, disable it after 250 col
 " If this does not help, just use :syntax off on that file!
-set synmaxcol=1500
-" disable syntax highlighting on large files. seems impossible to switch back
-" on after open that file, but comment this line
-autocmd BufWinEnter * if line2byte(line("$") + 1) > 10485760 | syntax clear | endif
+set synmaxcol=500
+" disable syntax highlighting on large files. `:syntax on` or `:syntax enbale` to bring back on
+autocmd BufWinEnter * if line2byte(line("$") + 1) > 524288 | syntax clear | endif
 
 " Indents
 set autoindent cindent cinkeys-=0# indentkeys-=0#	" turn on indent by default and do not move back '#'
