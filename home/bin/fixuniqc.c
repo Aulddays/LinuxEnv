@@ -1,7 +1,7 @@
 /**
- * @file tolowergb.c
+ * @file fixuniqc.c
  * @date 2018/07/31 13:37:03
- * @brief convert to lower case, for text in gb-xxx encoding
+ * @brief reformat `uniq -c` output to be more machine-readable, e.g.: "42\tcontent1\n64\tcont2\n"
  *  
  **/
 
