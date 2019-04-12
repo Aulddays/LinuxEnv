@@ -1,0 +1,34 @@
+--- proc/escape.ori.c	2019-04-12 19:57:46.000000000 +0800
++++ proc/escape.c	2019-04-12 20:06:02.000000000 +0800
+@@ -145,11 +145,13 @@
+ 
+ #if (__GNU_LIBRARY__ >= 6) && (!defined(__UCLIBC__) || defined(__UCLIBC_HAS_WCHAR__))
+   static int utf_init=0;
+-
++  static int gb_init=0;
++ 
+   if(utf_init==0){
+      /* first call -- check if UTF stuff is usable */
+      char *enc = nl_langinfo(CODESET);
+      utf_init = enc && strcasecmp(enc, "UTF-8")==0 ? 1 : -1;
++     gb_init = enc && strncasecmp(enc, "GB", 2)==0 ? 1 : -1;
+   }
+   if (utf_init==1 && MB_CUR_MAX>1) {
+      /* UTF8 locales */
+@@ -165,7 +167,15 @@
+       break;
+     c = (unsigned char) *(src++);
+     if(!c) break;
+-    if(codes[c]!='|') c=codes[c];
++    if(gb_init == 1 && c > 127 && *src)
++    {
++      my_cells++;
++      my_bytes++;
++      *(dst++) = c;
++      c = (unsigned char) *(src++);
++    }
++    else if(codes[c]!='|')
++      c=codes[c];
+     my_cells++;
+     my_bytes++;
+     *(dst++) = c;
