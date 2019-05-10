@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+# a wrapper for using vimdiff in `svn diff`
+# Option1:
+#     svn diff --diff-cmd svn-vimdiff some-file
+# Option2 (global):
+#     in file `$HOME/.subversion/config`
+#     diff-cmd = svn-vimdiff
+
+/usr/bin/vimdiff ${6} ${7}
