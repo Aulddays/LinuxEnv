@@ -1,40 +1,40 @@
-" Vundle
-set nocompatible              " be iMproved, required
-filetype off                  " required
-
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-" git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-" Then in vim, run :PluginInstall
-Plugin 'VundleVim/Vundle.vim'
-
-" third_party/ycmd/build.py
-" third_party/ycmd/cpp
-" ./third_party/ycmd/clang_archives => http://llvm.org/releases/clang+llvm-3.9.0-x86_64-opensuse13.2.tar.xz
-"Plugin 'Valloric/YouCompleteMe'
-
-"Plugin 'davidhalter/jedi-vim'
-Plugin 'Shougo/neocomplete'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+"" Vundle
+"set nocompatible              " be iMproved, required
+"filetype off                  " required
 "
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"" set the runtime path to include Vundle and initialize
+"set rtp+=~/.vim/bundle/Vundle.vim
+"call vundle#begin()
+"" alternatively, pass a path where Vundle should install plugins
+""call vundle#begin('~/some/path/here')
 "
-" see :h vundle for more details or wiki for FAQ
-" Put your non-Plugin stuff after this line
+"" let Vundle manage Vundle, required
+"" git clone --depth 1 https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+"" Then in vim, run :PluginInstall
+"Plugin 'VundleVim/Vundle.vim'
+"
+"" third_party/ycmd/build.py
+"" third_party/ycmd/cpp
+"" ./third_party/ycmd/clang_archives => http://llvm.org/releases/clang+llvm-3.9.0-x86_64-opensuse13.2.tar.xz
+""Plugin 'Valloric/YouCompleteMe'
+"
+""Plugin 'davidhalter/jedi-vim'
+"Plugin 'Shougo/neocomplete'
+"
+"" All of your Plugins must be added before the following line
+"call vundle#end()            " required
+"filetype plugin indent on    " required
+"" To ignore plugin indent changes, instead use:
+""filetype plugin on
+""
+"" Brief help
+"" :PluginList       - lists configured plugins
+"" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+"" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+"" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+""
+"" see :h vundle for more details or wiki for FAQ
+"" Put your non-Plugin stuff after this line
 
 set mouse=	" disable mouse
 colorscheme aulddays
@@ -64,7 +64,7 @@ if match($LANG, 'utf8') >= 0
 	set termencoding=utf8
 else
 	set encoding=2byte-gb18030
-	set termencoding=gb18030
+	set termencoding=2byte-gb18030
 endif
 set fileencodings=ucs-bom,gb18030,utf-8
 " use fencview to detect encoding. fencview can further use tellenc.
@@ -120,69 +120,69 @@ map <F10> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans
 	\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 	\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-" neocomplete settings
-" Use neocomplete.
-let g:neocomplete#enable_at_startup = 1
-" Use smartcase.
-let g:neocomplete#enable_smart_case = 1
-" Set minimum syntax keyword length.
-let g:neocomplete#sources#syntax#min_keyword_length = 2
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-" Define dictionary.
-let g:neocomplete#sources#dictionary#dictionaries = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell_hist',
-    \ 'scheme' : $HOME.'/.gosh_completions'
-        \ }
-" Define keyword.
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" Plugin key-mappings.
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" Recommended key-mappings.
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-" Close popup by <Space>.
-"inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
-" AutoComplPop like behavior.
-"let g:neocomplete#enable_auto_select = 1
-" Shell like behavior(not recommended).
-"set completeopt+=longest
-"let g:neocomplete#enable_auto_select = 1
-"let g:neocomplete#disable_auto_complete = 1
-"inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
-" Enable omni completion.
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-" Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-" For perlomni.vim setting.
-" https://github.com/c9s/perlomni.vim
-let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
-let g:neocomplete#enable_auto_close_preview=1
-
-" jedi-vim  plugin options
-"let g:jedi#completions_command = "<C-N>"
-let g:jedi#completions_enabled = 0	" Disable completion in jedi-vim
-let g:jedi#call_signature_escape = 'A0u1l2'	" Default =`= conflicts with operator_highlight plugin
+"" neocomplete settings
+"" Use neocomplete.
+"let g:neocomplete#enable_at_startup = 1
+"" Use smartcase.
+"let g:neocomplete#enable_smart_case = 1
+"" Set minimum syntax keyword length.
+"let g:neocomplete#sources#syntax#min_keyword_length = 2
+"let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"" Define dictionary.
+"let g:neocomplete#sources#dictionary#dictionaries = {
+"    \ 'default' : '',
+"    \ 'vimshell' : $HOME.'/.vimshell_hist',
+"    \ 'scheme' : $HOME.'/.gosh_completions'
+"        \ }
+"" Define keyword.
+"if !exists('g:neocomplete#keyword_patterns')
+"    let g:neocomplete#keyword_patterns = {}
+"endif
+"let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+"" Plugin key-mappings.
+"inoremap <expr><C-g>     neocomplete#undo_completion()
+"inoremap <expr><C-l>     neocomplete#complete_common_string()
+"" Recommended key-mappings.
+"" <CR>: close popup and save indent.
+"inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+"function! s:my_cr_function()
+"  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+"  " For no inserting <CR> key.
+"  "return pumvisible() ? "\<C-y>" : "\<CR>"
+"endfunction
+"" <TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+"" <C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"" Close popup by <Space>.
+""inoremap <expr><Space> pumvisible() ? "\<C-y>" : "\<Space>"
+"" AutoComplPop like behavior.
+""let g:neocomplete#enable_auto_select = 1
+"" Shell like behavior(not recommended).
+""set completeopt+=longest
+""let g:neocomplete#enable_auto_select = 1
+""let g:neocomplete#disable_auto_complete = 1
+""inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
+"" Enable omni completion.
+"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+"" Enable heavy omni completion.
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+"  let g:neocomplete#sources#omni#input_patterns = {}
+"endif
+""let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+""let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+""let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
+"" For perlomni.vim setting.
+"" https://github.com/c9s/perlomni.vim
+"let g:neocomplete#sources#omni#input_patterns.perl = '\h\w*->\h\w*\|\h\w*::'
+"let g:neocomplete#enable_auto_close_preview=1
+"
+"" jedi-vim  plugin options
+""let g:jedi#completions_command = "<C-N>"
+"let g:jedi#completions_enabled = 0	" Disable completion in jedi-vim
+"let g:jedi#call_signature_escape = 'A0u1l2'	" Default =`= conflicts with operator_highlight plugin
