@@ -99,11 +99,11 @@ let python_version_2 = 1
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
 
-autocmd FileType python,c,cpp set list listchars=tab:>\  | set colorcolumn=100    " show tab chars
+autocmd FileType python,c,cpp,php set list listchars=tab:>\  | set colorcolumn=100    " show tab chars
 " Press F11 to toggle show tab char
 map <F11> : if &list <Bar> set nolist <Bar> else <Bar> set list listchars=tab:>\  <Bar> endif<CR>
 
-autocmd FileType python,c,cpp let g:indentLine_enabled = 1  " enable indentLine plugin
+autocmd FileType python,c,cpp,php let g:indentLine_enabled = 1  " enable indentLine plugin
 let g:indentLine_setColors = 0
 let g:indentLine_char = ' '
 let g:indentLine_enabled = 0
