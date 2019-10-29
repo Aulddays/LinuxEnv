@@ -1,0 +1,51 @@
+diff -ur a/proc/escape.c b/proc/escape.c
+--- a/proc/escape.c	2018-05-20 05:35:37.000000000 +0800
++++ b/proc/escape.c	2019-10-28 21:19:25.000000000 +0800
+@@ -145,11 +145,13 @@
+ 
+ #if (__GNU_LIBRARY__ >= 6) && (!defined(__UCLIBC__) || defined(__UCLIBC_HAS_WCHAR__))
+   static int utf_init=0;
+-
++  static int gb_init=0;
++ 
+   if(utf_init==0){
+      /* first call -- check if UTF stuff is usable */
+      char *enc = nl_langinfo(CODESET);
+      utf_init = enc && strcasecmp(enc, "UTF-8")==0 ? 1 : -1;
++     gb_init = enc && strncasecmp(enc, "GB", 2)==0 ? 1 : -1;
+   }
+   if (utf_init==1 && MB_CUR_MAX>1) {
+      /* UTF8 locales */
+@@ -165,7 +167,15 @@
+       break;
+     c = (unsigned char) *(src++);
+     if(!c) break;
+-    if(codes[c]!='|') c=codes[c];
++    if(gb_init == 1 && c > 127 && *src)
++    {
++      my_cells++;
++      my_bytes++;
++      *(dst++) = c;
++      c = (unsigned char) *(src++);
++    }
++    else if(codes[c]!='|')
++      c=codes[c];
+     my_cells++;
+     my_bytes++;
+     *(dst++) = c;
+diff -ur a/top/top.c b/top/top.c
+--- a/top/top.c	2018-05-20 05:35:37.000000000 +0800
++++ b/top/top.c	2019-10-28 21:19:40.000000000 +0800
+@@ -1906,10 +1906,10 @@
+    {     5,     -1,  A_right,  SF(CPU),  L_stat    },
+    {     6,     -1,  A_right,  SF(TME),  L_stat    },
+    {     9,     -1,  A_right,  SF(TME),  L_stat    }, // EU_TM2 slot
+-   {     5,     -1,  A_right,  SF(RES),  L_statm   }, // EU_MEM slot
++   {     7,     -1,  A_right,  SF(RES),  L_statm   }, // EU_MEM slot
+    {     7,  SK_Kb,  A_right,  SF(VRT),  L_statm   },
+    {     6,  SK_Kb,  A_right,  SF(SWP),  L_status  },
+-   {     6,  SK_Kb,  A_right,  SF(RES),  L_statm   },
++   {     7,  SK_Kb,  A_right,  SF(RES),  L_statm   },
+    {     6,  SK_Kb,  A_right,  SF(COD),  L_statm   },
+    {     7,  SK_Kb,  A_right,  SF(DAT),  L_statm   },
+    {     6,  SK_Kb,  A_right,  SF(SHR),  L_statm   },
