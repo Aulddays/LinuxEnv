@@ -74,9 +74,9 @@ let g:fencview_autodetect=1
 " Work-around incomplete terminfo databases                                     
 " Particulalry useful when under `screen`, which may or may not be attached to  
 " a physical terminal capable of 256color mode.                                 
-if match($TERMCAP, 'Co#256:') == 0 || match($TERMCAP, ':Co#256:') > 0 || match($TERM, 'xterm') >= 0 || match($TERM, 'linux') >= 0 || match($TERM, 'screen') >= 0
+"if match($TERMCAP, 'Co#256:') == 0 || match($TERMCAP, ':Co#256:') > 0 || match($TERM, 'xterm') >= 0 || match($TERM, 'linux') >= 0 || match($TERM, 'screen') >= 0 || match($TERM, 'ansi') >= 0
     set t_Co=256                                                                
-endif    
+"endif    
 
 "set list
 "set listchars=tab:>-
@@ -99,11 +99,12 @@ let python_version_2 = 1
 let python_highlight_all = 1
 let python_highlight_space_errors = 0
 
-autocmd FileType python,c,cpp,php set list listchars=tab:>\  | set colorcolumn=100    " show tab chars
+autocmd FileType python,c,cpp,php,idl,sh,html,css,make,java,javascript set list listchars=tab:>\     " show tab chars
+"autocmd FileType python,c,cpp,php,idl set list listchars=tab:>\  | set colorcolumn=100    " show tab chars
 " Press F11 to toggle show tab char
 map <F11> : if &list <Bar> set nolist <Bar> else <Bar> set list listchars=tab:>\  <Bar> endif<CR>
 
-autocmd FileType python,c,cpp,php let g:indentLine_enabled = 1  " enable indentLine plugin
+autocmd FileType python,c,cpp,php,idl,sh,html,css,make,java,javascript let g:indentLine_enabled = 1  " enable indentLine plugin
 let g:indentLine_setColors = 0
 let g:indentLine_char = ' '
 let g:indentLine_enabled = 0

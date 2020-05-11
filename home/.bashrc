@@ -17,6 +17,7 @@ if [[ ! -z "$LANGCUSTOM" ]]; then
 	export LANG="$LANGCUSTOM"
 else
 	export LANG=zh_CN.gb18030
+	export PYTHONIOENCODING=gb18030
 fi
 
 # Shell configuration
@@ -36,6 +37,7 @@ alias ln='ln -i'
 alias rsync='rsync -t'
 alias hexdump='hexdump -C'
 alias ..='cd ..'
+alias grep="grep --color=auto"
 
 # allow alias in sudo. bash checks only first word in cmd for alias by default,
 # but if an alias value ends with sapce, the next word after it is also checked, so that `ll` in `sudo ll` will work
