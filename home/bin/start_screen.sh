@@ -29,8 +29,8 @@ if [[ ${LANG-} && $LANG =~ $gbre ]]; then
 	SCREENFAKELANG="LANG=$SCREENFAKELANG "
 fi
 
-if (screen -list | fgrep "$sname"$'\t' | fgrep -v "$sname"$'\t(Dead'); then
-	rsname=$(screen -list | grep -F "$sname"$'\t' | grep -Fv "$sname"$'\t(Dead' | head -n1 | grep -oE "[^"$'\t'"]+$sname"$'\t' | cut -f1)
+if (screen -list | grep -F ".$sname"$'\t' | fgrep -v "$sname"$'\t(Dead'); then
+	rsname=$(screen -list | grep -F ".$sname"$'\t' | grep -Fv "$sname"$'\t(Dead' | head -n1 | grep -oE "[^"$'\t'"]+$sname"$'\t' | cut -f1)
     eval ${SCREENFAKELANG}exec screen -dR "$rsname"
 else
     eval ${SCREENFAKELANG}exec screen -S "$sname" -t "$sname"
