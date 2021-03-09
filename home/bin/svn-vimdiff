@@ -7,4 +7,4 @@
 #     in file `$HOME/.subversion/config`
 #     diff-cmd = svn-vimdiff
 
-/usr/bin/vimdiff ${6} ${7}
+vimdiff ${6} ${7}
