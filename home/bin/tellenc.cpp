@@ -130,43 +130,51 @@ static freq_analysis_data_t freq_analysis_data[] = {
     { 0xc4c4, "cp437" },                // "──"
     { 0xcdcd, "cp437" },                // "══"
     { 0xdbdb, "cp437" },                // "██"
-    { 0xa1a1, "gbk" },                  // "　"
-    { 0xa1a2, "gbk" },                  // "、"
-    { 0xa1a3, "gbk" },                  // "。"
-    { 0xa1a4, "gbk" },                  // "·"
-    { 0xa1b6, "gbk" },                  // "《"
-    { 0xa1b7, "gbk" },                  // "》"
-    { 0xa3ac, "gbk" },                  // "，"
-    { 0xa3ba, "gbk" },                  // "："
-    { 0xb5c4, "gbk" },                  // "的"
-    { 0xc1cb, "gbk" },                  // "了"
-    { 0xd2bb, "gbk" },                  // "一"
-    { 0xcac7, "gbk" },                  // "是"
-    { 0xb2bb, "gbk" },                  // "不"
-    { 0xb8f6, "gbk" },                  // "个"
-    { 0xc8cb, "gbk" },                  // "人"
-    { 0xd5e2, "gbk" },                  // "这"
-    { 0xd3d0, "gbk" },                  // "有"
-    { 0xced2, "gbk" },                  // "我"
-    { 0xc4e3, "gbk" },                  // "你"
-    { 0xcbfb, "gbk" },                  // "他"
-    { 0xcbfd, "gbk" },                  // "她"
-    { 0xc9cf, "gbk" },                  // "上"
-    { 0xbfb4, "gbk" },                  // "看"
-    { 0xd6ae, "gbk" },                  // "之"
-    { 0xbbb9, "gbk" },                  // "还"
-    { 0xbfc9, "gbk" },                  // "可"
-    { 0xbaf3, "gbk" },                  // "后"
-    { 0xd6d0, "gbk" },                  // "中"
-    { 0xd0d0, "gbk" },                  // "行"
-    { 0xb1d2, "gbk" },                  // "币"
-    { 0xb3f6, "gbk" },                  // "出"
-    { 0xb7d1, "gbk" },                  // "费"
-    { 0xb8d0, "gbk" },                  // "感"
-    { 0xbef5, "gbk" },                  // "觉"
-    { 0xc4ea, "gbk" },                  // "年"
-    { 0xd4c2, "gbk" },                  // "月"
-    { 0xc8d5, "gbk" },                  // "日"
+    { 0xa1a1, "gb18030" },                  // "　"
+    { 0xa1a2, "gb18030" },                  // "、"
+    { 0xa1a3, "gb18030" },                  // "。"
+    { 0xa1a4, "gb18030" },                  // "·"
+    { 0xa1b6, "gb18030" },                  // "《"
+    { 0xa1b7, "gb18030" },                  // "》"
+    { 0xa3ac, "gb18030" },                  // "，"
+    { 0xa3ba, "gb18030" },                  // "："
+    { 0xb5c4, "gb18030" },                  // "的"
+    { 0xc1cb, "gb18030" },                  // "了"
+    { 0xd2bb, "gb18030" },                  // "一"
+    { 0xcac7, "gb18030" },                  // "是"
+    { 0xb2bb, "gb18030" },                  // "不"
+    { 0xb8f6, "gb18030" },                  // "个"
+    { 0xc8cb, "gb18030" },                  // "人"
+    { 0xd5e2, "gb18030" },                  // "这"
+    { 0xd3d0, "gb18030" },                  // "有"
+    { 0xced2, "gb18030" },                  // "我"
+    { 0xc4e3, "gb18030" },                  // "你"
+    { 0xcbfb, "gb18030" },                  // "他"
+    { 0xcbfd, "gb18030" },                  // "她"
+    { 0xc9cf, "gb18030" },                  // "上"
+    { 0xbfb4, "gb18030" },                  // "看"
+    { 0xd6ae, "gb18030" },                  // "之"
+    { 0xbbb9, "gb18030" },                  // "还"
+    { 0xbfc9, "gb18030" },                  // "可"
+    { 0xbaf3, "gb18030" },                  // "后"
+    { 0xd6d0, "gb18030" },                  // "中"
+    { 0xd0d0, "gb18030" },                  // "行"
+    { 0xb1d2, "gb18030" },                  // "币"
+    { 0xb3f6, "gb18030" },                  // "出"
+    { 0xb7d1, "gb18030" },                  // "费"
+    { 0xb8d0, "gb18030" },                  // "感"
+    { 0xbef5, "gb18030" },                  // "觉"
+    { 0xc4ea, "gb18030" },                  // "年"
+    { 0xd4c2, "gb18030" },                  // "月"
+    { 0xc8d5, "gb18030" },                  // "日"
+    { 0xc3bb, "gb18030" },                  // "没"
+    { 0xbada, "gb18030" },                  // "黑"
+    { 0xb0d7, "gb18030" },                  // "白"
+    { 0xbac3, "gb18030" },                  // "好"
+    { 0xb1b1, "gb18030" },                  // "北"
+    { 0xbea9, "gb18030" },                  // "京"
+    { 0xd6d0, "gb18030" },                  // "中"
+    { 0xb9fa, "gb18030" },                  // "国"
     { 0xa140, "big5" },                 // "　"
     { 0xa141, "big5" },                 // "，"
     { 0xa143, "big5" },                 // "。"
@@ -390,6 +398,8 @@ const char* tellenc(const unsigned char* const buffer, const size_t len)
     unsigned char ch;
     int last_ch = EOF;
     int utf8_state = UTF8_1;
+    int utf8_init_state = UTF8_1;
+    int utf8_cnt[UTF8_TAIL] = { 0 };
     for (size_t i = 0; i < len; ++i) {
         ch = buffer[i];
         sbyte_char_cnt[ch].second++;
@@ -412,42 +422,57 @@ const char* tellenc(const unsigned char* const buffer, const size_t len)
         }
 
         // Check for UTF-8 validity
-        if (is_valid_utf8) {
+        if (is_valid_utf8 || utf8_cnt[UTF8_INVALID] < 20 ||
+                utf8_cnt[UTF8_INVALID] * 10 < (utf8_cnt[UTF8_2] + utf8_cnt[UTF8_3] + utf8_cnt[UTF8_4])) {
             switch (utf8_char_table[ch]) {
             case UTF8_INVALID:
                 is_valid_utf8 = false;
+                utf8_cnt[UTF8_INVALID]++;
+                utf8_state = UTF8_1;
                 break;
             case UTF8_1:
                 if (utf8_state != UTF8_1) {
                     is_valid_utf8 = false;
+                    utf8_cnt[UTF8_INVALID]++;
+                    utf8_state = UTF8_1;
                 }
                 break;
             case UTF8_2:
                 if (utf8_state != UTF8_1) {
                     is_valid_utf8 = false;
+                    utf8_cnt[UTF8_INVALID]++;
+                    utf8_state = UTF8_1;
                 } else {
-                    utf8_state = UTF8_2;
+                    utf8_state = utf8_init_state = UTF8_2;
                 }
                 break;
             case UTF8_3:
                 if (utf8_state != UTF8_1) {
                     is_valid_utf8 = false;
+                    utf8_cnt[UTF8_INVALID]++;
+                    utf8_state = UTF8_1;
                 } else {
-                    utf8_state = UTF8_3;
+                    utf8_state = utf8_init_state = UTF8_3;
                 }
                 break;
             case UTF8_4:
                 if (utf8_state != UTF8_1) {
                     is_valid_utf8 = false;
+                    utf8_cnt[UTF8_INVALID]++;
+                    utf8_state = UTF8_1;
                 } else {
-                    utf8_state = UTF8_4;
+                    utf8_state = utf8_init_state = UTF8_4;
                 }
                 break;
             case UTF8_TAIL:
                 if (utf8_state > UTF8_1) {
                     utf8_state--;
+                    if (utf8_state == UTF8_1)
+                        utf8_cnt[utf8_init_state]++;
                 } else {
                     is_valid_utf8 = false;
+                    utf8_cnt[UTF8_INVALID]++;
+                    utf8_state = UTF8_1;
                 }
                 break;
             }
@@ -495,6 +520,8 @@ const char* tellenc(const unsigned char* const buffer, const size_t len)
         printf("%u double-byte hi-hi characters\n", dbyte_hihi_cnt);
         printf("%u unique double-byte characters\n",
                (unsigned)dbyte_char_cnt.size());
+        printf("utf-8 char: 2byte:%d, 3byte:%d, 4byte:%d, inv:%d\n",
+                utf8_cnt[UTF8_2], utf8_cnt[UTF8_3], utf8_cnt[UTF8_4], utf8_cnt[UTF8_INVALID]);
     }
 
     if (!is_valid_utf8 && is_binary) {
@@ -529,6 +556,9 @@ const char* tellenc(const unsigned char* const buffer, const size_t len)
     } else if (dbyte_hihi_cnt * 100 / dbyte_cnt < 5) {
         // Mostly a low-byte follows a high-byte
         return "windows-1252";
+    } else if (utf8_cnt[UTF8_INVALID] * 30 < (utf8_cnt[UTF8_2] + utf8_cnt[UTF8_3] + utf8_cnt[UTF8_4])) {
+        // Do not look like others, tolerate a small portion of invalid utf-8 chars
+        return "utf-8";
     }
     return NULL;
 }
@@ -540,9 +570,9 @@ const char* tellenc_simplify(const char* const buffer, const size_t len)
         if (strcmp(enc, "windows-1252") == 0 && is_valid_latin1) {
             // Latin1 is subset of Windows-1252
             return "latin1";
-        } else if (strcmp(enc, "gbk") == 0 && dbyte_hihi_cnt == dbyte_cnt) {
+        } else if (strcmp(enc, "gb18030") == 0 && dbyte_hihi_cnt == dbyte_cnt) {
             // Special case for GB2312: no high-byte followed by a low-byte
-            return "gb2312";
+            //return "gb2312";
         }
     }
     return enc;

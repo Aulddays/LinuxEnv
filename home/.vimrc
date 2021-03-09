@@ -71,6 +71,7 @@ set fileencodings=ucs-bom,gb18030,utf-8
 " use fencview to detect encoding. fencview can further use tellenc.
 " compile tellenc.cpp in the bin dir and add to PATH
 let g:fencview_autodetect=1
+let g:fencview_auto_patterns='*.txt,*.htm{l\=},*.cpp,*.c,*.h,*.py'
 
 " Work-around incomplete terminfo databases                                     
 " Particulalry useful when under `screen`, which may or may not be attached to  
