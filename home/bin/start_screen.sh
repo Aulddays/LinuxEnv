@@ -1,12 +1,28 @@
 #!/bin/env bash
 # if you want all session names to have some prefix, invoke this script as rescreen_prefix
+# if in WSL, invoke this script as rescreen.wsl_prefix (this fixes /var/run/screen problem)
+# if utf8 is wanted, invoke rescreen.utf_prefix
 # (rename the script file or make a link)
+
+# if there are encoding problems in screen, remove "override_install_langs" in /etc/yum.conf
+# and reinstall screen
+
+fn=$(basename $0)
+
+if [[ $fn =~ \.wsl ]]; then
+	sudo mkdir -p /var/run/screen
+	sudo chmod 775 /var/run/screen
+fi
 
 SBASE=""
 # see if we should use a session name prefix
-fn=$(basename $0)
 if [[ $fn =~ _.{1,3}$ ]]; then	# let prefix to be 1-3 char len
 	SBASE=${fn##*_}
+fi
+if [[ $fn =~ \.utf ]]; then
+	SBASE=${SBASE}u
+	export LANG=zh_CN.utf8
+	export LANGCUSTOM=zh_CN.utf8
 fi
 screen -list
 echo -n "Session name: $SBASE"
